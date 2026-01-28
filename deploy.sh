@@ -1,49 +1,48 @@
 #!/bin/bash
 
-# Detener el script si hay errores
+# Script de Despliegue Atómico para el Runner
 set -e
 
-echo "🚀 Iniciando despliegue..."
+echo "🚀 Iniciando despliegue atómico..."
 
-# Navegar al directorio del proyecto (asegúrate de que esta ruta sea correcta en tu servidor)
-# cd /path/to/project (Esto se gestionará desde el workflow o asumiendo ejecución en root del proyecto)
+# Configuración de Rutas
+PROJECT_ROOT="/var/www/comprasventas"
+RELEASE_ID=$(cat RELEASE_ID | head -n 1)
+RELEASE_PATH="$PROJECT_ROOT/releases/$RELEASE_ID"
+SHARED_PATH="$PROJECT_ROOT/shared"
 
-# Poner la aplicación en modo mantenimiento
-echo "🔒 Poniendo aplicación en modo mantenimiento..."
-php artisan down || true
+echo "📂 Preparando carpeta de release: $RELEASE_ID"
+mkdir -p "$RELEASE_PATH"
 
-# Actualizar código fuente
-echo "📥 Descargando últimos cambios..."
-git pull origin main
+# 1. Copiar archivos del artefacto (ya descargados por el runner) a la carpeta de release
+echo "📦 Desempaquetando artefacto..."
+cp -rv . "$RELEASE_PATH/"
 
-# Instalar dependencias de PHP
-echo "📦 Instalando dependencias de Composer..."
-composer install --no-dev --optimize-autoloader
+# 2. Enlazar archivos compartidos (Secrets y Storage)
+echo "🔗 Enlazando recursos compartidos..."
+ln -sfn "$SHARED_PATH/.env" "$RELEASE_PATH/.env"
+rm -rf "$RELEASE_PATH/storage"
+ln -sfn "$SHARED_PATH/storage" "$RELEASE_PATH/storage"
 
-# Instalar dependencias de Node y compilar assets
-echo "🎨 Compilando assets de Frontend..."
-npm ci
-npm run build
+# 3. Optimización de Laravel
+echo "🧹 Ejecutando tareas de mantenimiento en el release..."
+cd "$RELEASE_PATH"
 
-# Ejecutar migraciones de base de datos
-echo "🗄️ Ejecutando migraciones..."
-php artisan migrate --force
+# Permisos previos
+chmod -R 775 storage bootstrap/cache
 
-# Limpiar y cachear configuración
-echo "🧹 Optimizando cachés..."
 php artisan optimize:clear
+php artisan migrate --force
 php artisan optimize
-php artisan view:cache
-php artisan config:cache
-php artisan route:cache
 
-# Restaurar permisos (ajusta 'www-data' según tu usuario de servidor web)
-echo "🔑 Restaurando permisos..."
-# chown -R www-data:www-data . # Descomentar si es necesario y tienes sudo
-# chmod -R 775 storage bootstrap/cache
+# 4. SWITCH ATÓMICO (EL MOMENTO CLAVE)
+echo "🔄 Realizando cambio atómico de symlink..."
+ln -sfn "$RELEASE_PATH" "$PROJECT_ROOT/current.new"
+mv -Tf "$PROJECT_ROOT/current.new" "$PROJECT_ROOT/current"
 
-# Sacar de modo mantenimiento
-echo "🔓 Levantando aplicación..."
-php artisan up
+# 5. Limpieza de versiones antiguas (Mantener solo las últimas 3)
+echo "🧹 Limpiando releases antiguos..."
+cd "$PROJECT_ROOT/releases"
+ls -1t | tail -n +4 | xargs -r rm -rf
 
-echo "✅ ¡Despliegue completado con éxito!"
+echo "✅ ¡Despliegue completado con éxito! Versión: $RELEASE_ID"

@@ -138,5 +138,3 @@ class HealthController extends Controller
         ];
     }
 }
-
-Este texto rompe la sintaxis de PHP

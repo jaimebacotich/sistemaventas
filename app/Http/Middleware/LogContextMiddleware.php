@@ -45,6 +45,6 @@ class LogContextMiddleware
             return trim(explode("\n", (string) $content)[0]);
         }
 
-        return env('APP_RELEASE', 'local');
+        return config('app.release', 'local');
     }
 }

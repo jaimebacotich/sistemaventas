@@ -138,5 +138,3 @@ class HealthController extends Controller
         ];
     }
 }
-
-Esto rompe el CI de forma intencional

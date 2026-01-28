@@ -3,7 +3,7 @@ name: CD - Staging + Production (Runner Mode)
 on:
   push:
     branches: ["main"]
-  tag:
+  tags:
     - "v*"
   workflow_dispatch:
 

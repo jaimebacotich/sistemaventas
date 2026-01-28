@@ -40,6 +40,7 @@ class LogContextMiddleware
 
         if (file_exists($path)) {
             $content = file_get_contents($path);
+
             // Tomamos la primera línea (timestamp) o el contenido completo limpio
             return trim(explode("\n", (string) $content)[0]);
         }

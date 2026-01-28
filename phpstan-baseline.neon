@@ -1,0 +1,463 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Relation ''categoria'' is not found in App\\Models\\Producto model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Api/CompraController.php
+
+		-
+			message: '#^Relation ''categoria'' is not found in App\\Models\\Producto model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Api/ProductoController.php
+
+		-
+			message: '#^Relation ''categoria'' is not found in App\\Models\\Producto model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Api/VentaController.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CategoriaResource\:\:\$descripcion\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CategoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CategoriaResource\:\:\$estado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CategoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CategoriaResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CategoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CategoriaResource\:\:\$nombre\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CategoriaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ClienteResource\:\:\$codigo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ClienteResource\:\:\$credito_disponible\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ClienteResource\:\:\$dias_credito\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ClienteResource\:\:\$estado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ClienteResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ClienteResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$codigo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$estado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$fecha_compra\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$fecha_vencimiento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$numero_comprobante\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$observaciones\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$porcentaje_descuento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$porcentaje_impuesto\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$puede_editarse\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$tipo_compra\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$tipo_comprobante\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\CompraResource\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/CompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$cantidad\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$porcentaje_descuento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$precio_unitario\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$producto_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$subtotal\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleCompraResource\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleCompraResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$cantidad\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$descuento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$porcentaje_descuento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$precio_unitario\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$producto_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$subtotal\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\DetalleVentaResource\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/DetalleVentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$categoria_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$codigo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$descripcion\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$estado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$imagen\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$nombre\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$precio_compra\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$precio_venta\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$stock\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$stock_minimo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProductoResource\:\:\$unidad_medida\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProductoResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProveedorResource\:\:\$codigo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProveedorResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProveedorResource\:\:\$credito_disponible\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProveedorResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProveedorResource\:\:\$dias_credito\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProveedorResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProveedorResource\:\:\$estado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProveedorResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\ProveedorResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/ProveedorResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$codigo\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$descuento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$estado\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$fecha_vencimiento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$fecha_venta\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$impuesto\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$numero_comprobante\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$observaciones\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$porcentaje_descuento\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$porcentaje_impuesto\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$puede_editarse\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$subtotal\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$tipo_comprobante\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$tipo_venta\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\VentaResource\:\:\$total\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/VentaResource.php
+
+		-
+			message: '#^Relation ''categoria'' is not found in App\\Models\\Producto model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Services/ReporteService.php

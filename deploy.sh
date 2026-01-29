@@ -2,6 +2,7 @@
 
 # Script de Despliegue Atómico para el Runner
 set -e
+set -x # Habilitar modo debug para ver errores detallados
 
 echo "🚀 Iniciando despliegue atómico..."
 

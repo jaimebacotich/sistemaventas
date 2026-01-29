@@ -66,6 +66,9 @@ jobs:
             ./
             !node_modules
             !.git
+            !.github
+            !tests
+            !storage/*.key
           retention-days: 7
 
   # ==================================================================

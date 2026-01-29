@@ -5,6 +5,10 @@ set -e
 set -x # Habilitar modo debug para ver errores detallados
 
 echo "🚀 Iniciando despliegue atómico..."
+echo "👤 Usuario: $(whoami)"
+echo "📂 Ruta actual: $(pwd)"
+echo "🛠️ PHP: $(php -v | head -n 1)"
+echo "🛠️ Composer: $(composer -V 2>/dev/null || echo 'No encontrado')"
 
 # Configuración de Rutas
 PROJECT_ROOT="/var/www/comprasventas"

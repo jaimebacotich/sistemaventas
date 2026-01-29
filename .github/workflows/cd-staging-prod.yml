@@ -101,6 +101,7 @@ jobs:
 
       - name: Ejecutar Despliegue Atómico (Staging)
         run: |
+          sed -i 's/\r$//' deploy.sh
           chmod +x deploy.sh
           ./deploy.sh
 

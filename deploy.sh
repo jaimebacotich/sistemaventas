@@ -44,7 +44,17 @@ echo "🧹 Ejecutando tareas de mantenimiento en el release..."
 cd "$RELEASE_PATH"
 
 # Permisos previos (Solo en carpetas propias del release)
+echo "📂 Creando directorio bootstrap/cache si no existe..."
+mkdir -p bootstrap/cache
+echo "🔒 Ajustando permisos de bootstrap/cache..."
 chmod -R 775 bootstrap/cache
+
+echo "🔍 Verificando archivo .env..."
+if [ ! -f .env ]; then
+    echo "❌ ERROR: No se encuentra el archivo .env"
+    ls -la
+    exit 1
+fi
 
 echo "🎼 Regenerando autoloader de Composer..."
 composer dump-autoload --optimize --classmap-authoritative

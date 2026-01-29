@@ -63,11 +63,22 @@ jobs:
         with:
           name: app-release
           path: |
-            ./
-            !node_modules
-            !.git
-            !.github
-            !tests
+            app
+            bootstrap
+            config
+            database
+            public
+            resources
+            routes
+            storage
+            vendor
+            artisan
+            composer.json
+            composer.lock
+            package.json
+            vite.config.js
+            deploy.sh
+            scripts
             !storage/*.key
             !storage/logs
             !bootstrap/cache/*.php

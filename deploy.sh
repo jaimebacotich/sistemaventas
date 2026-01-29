@@ -29,8 +29,8 @@ ln -sfn "$SHARED_PATH/storage" "$RELEASE_PATH/storage"
 echo "🧹 Ejecutando tareas de mantenimiento en el release..."
 cd "$RELEASE_PATH"
 
-# Permisos previos
-chmod -R 775 storage bootstrap/cache
+# Permisos previos (Solo en carpetas propias del release)
+chmod -R 775 bootstrap/cache
 
 php artisan optimize:clear
 php artisan migrate --force

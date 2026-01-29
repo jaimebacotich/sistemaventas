@@ -25,6 +25,16 @@ ln -sfn "$SHARED_PATH/.env" "$RELEASE_PATH/.env"
 rm -rf "$RELEASE_PATH/storage"
 ln -sfn "$SHARED_PATH/storage" "$RELEASE_PATH/storage"
 
+# 2.1 Asegurar estructura de storage (Crucial para Laravel)
+echo "📁 Verificando estructura de storage compartido..."
+mkdir -p "$SHARED_PATH/storage/app/public"
+mkdir -p "$SHARED_PATH/storage/framework/cache/data"
+mkdir -p "$SHARED_PATH/storage/framework/sessions"
+mkdir -p "$SHARED_PATH/storage/framework/testing"
+mkdir -p "$SHARED_PATH/storage/framework/views"
+mkdir -p "$SHARED_PATH/storage/logs"
+chmod -R 775 "$SHARED_PATH/storage" || true # Intentar ajustar permisos, ignorar si falla
+
 # 3. Optimización de Laravel
 echo "🧹 Ejecutando tareas de mantenimiento en el release..."
 cd "$RELEASE_PATH"

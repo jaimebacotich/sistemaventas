@@ -24,12 +24,34 @@ jobs:
           tools: composer:v2
 
       - name: PHP Dependencies
-        run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+        run: composer install --prefer-dist --no-interaction
+
+      - name: Backend Quality Gates (PINT)
+        run: composer lint
+
+      - name: Backend Static Analysis (PHPStan)
+        run: composer static
+
+      - name: Backend Tests (SQLite for speed)
+        run: |
+          php -r "file_exists('.env') || copy('.env.example', '.env');"
+          php artisan key:generate
+          php artisan test
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+
+      - name: Install Frontend
+        run: npm ci
+
+      - name: Frontend Quality Gates (ESLint)
+        run: npm run lint
+
+      - name: Frontend Tests (Vitest)
+        run: npm run test
 
       - name: Build Assets (Vite)
-        run: |
-          npm ci
-          npm run build
+        run: npm run build
 
       - name: Metadata
         run: |

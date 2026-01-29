@@ -86,6 +86,14 @@ jobs:
     runs-on: self-hosted # ESTO ES LO QUE CONECTA CON TU VM
     environment: staging
     steps:
+      - name: Limpiar Workspace (Prevención de contaminación)
+        run: |
+          ls -la
+          rm -rf *
+          rm -rf .git
+          rm -rf .github
+          echo "Workspace limpio."
+
       - name: Descargar Artefacto
         uses: actions/download-artifact@v4
         with:

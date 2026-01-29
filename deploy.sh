@@ -42,6 +42,9 @@ cd "$RELEASE_PATH"
 # Permisos previos (Solo en carpetas propias del release)
 chmod -R 775 bootstrap/cache
 
+echo "🎼 Regenerando autoloader de Composer..."
+composer dump-autoload --optimize --classmap-authoritative
+
 php artisan optimize:clear
 php artisan migrate --force
 php artisan optimize

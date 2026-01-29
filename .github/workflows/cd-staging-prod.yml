@@ -105,12 +105,42 @@ jobs:
           chmod +x deploy.sh
           ./deploy.sh
 
+      - name: Verificación de Salud (Health Check)
+        run: |
+          # Esperar un momento a que los servicios se estabilicen
+          sleep 5
+          STAGING_URL="http://localhost" # O la URL configurada en el runner local
+          curl -f "$STAGING_URL/api/health" || (echo "❌ Health check falló" && exit 1)
+
+  # ==================================================================
+  # ROLLBACK STAGING - Se activa si el despliegue falla
+  # ==================================================================
+  rollback_staging:
+    name: Rollback Staging
+    needs: [deploy_staging]
+    if: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: self-hosted
+    steps:
+      - name: Revertir Symlink a versión anterior
+        run: |
+          PROJECT_ROOT="/var/www/comprasventas"
+          echo "⚠️ Iniciando rollback en Staging..."
+          PREV=$(ls -1dt $PROJECT_ROOT/releases/*/ | sed -n '2p')
+          if [ -n "$PREV" ]; then
+            ln -sfn "$PREV" "$PROJECT_ROOT/current"
+            echo "✅ Rollback completado. Apuntando a: $PREV"
+          else
+            echo "❌ No se encontró una versión previa estable para rollback."
+            exit 1
+          fi
+
   # ==================================================================
   # DESPLIEGUE A PRODUCCIÓN - Requiere aprobación manual en GitHub
   # ==================================================================
   deploy_production:
     name: Despliegue a Producción
     needs: [deploy_staging]
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
     runs-on: self-hosted
     environment: production
     steps:
@@ -121,5 +151,34 @@ jobs:
 
       - name: Ejecutar Despliegue Atómico (Producción)
         run: |
+          sed -i 's/\r$//' deploy.sh
           chmod +x deploy.sh
           ./deploy.sh
+
+      - name: Verificación de Salud (Health Check)
+        run: |
+          sleep 5
+          PROD_URL="http://localhost" 
+          curl -f "$PROD_URL/api/health" || (echo "❌ Health check falló" && exit 1)
+
+  # ==================================================================
+  # ROLLBACK PRODUCCIÓN - Se activa si el despliegue falla
+  # ==================================================================
+  rollback_production:
+    name: Rollback Producción
+    needs: [deploy_production]
+    if: failure()
+    runs-on: self-hosted
+    steps:
+      - name: Revertir Symlink a versión anterior
+        run: |
+          PROJECT_ROOT="/var/www/comprasventas"
+          echo "⚠️ Iniciando rollback en Producción..."
+          PREV=$(ls -1dt $PROJECT_ROOT/releases/*/ | sed -n '2p')
+          if [ -n "$PREV" ]; then
+            ln -sfn "$PREV" "$PROJECT_ROOT/current"
+            echo "✅ Rollback completado. Apuntando a: $PREV"
+          else
+            echo "❌ No se encontró una versión previa estable para rollback."
+            exit 1
+          fi

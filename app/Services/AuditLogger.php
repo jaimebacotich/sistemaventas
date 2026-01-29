@@ -14,35 +14,22 @@ class AuditLogger
     public static function log($tipo, $nivel, $descripcion, $exception = null)
     {
         try {
-            $user = Auth::check()
-                ? Auth::user()->name.' ('.Auth::user()->email.')'
-                : 'Invitado';
-
-            $ip = Request::ip();
-            $url = Request::fullUrl();
-            $fecha = now()->format('Y-m-d H:i:s');
-
-            // Construir mensaje multilínea
-            $mensaje = "\n[".$fecha.']';
-            $mensaje .= "\nTIPO: ".strtoupper($tipo);
-            $mensaje .= "\nNIVEL: ".$nivel;
-            $mensaje .= "\nDESCRIPCIÓN: ".$descripcion;
-            $mensaje .= "\nUSUARIO: ".$user;
-            $mensaje .= "\nIP ORIGEN: ".$ip;
-            $mensaje .= "\nUBICACIÓN: ".$url;
+            $context = [
+                'tipo' => strtoupper($tipo),
+                'nivel' => $nivel,
+                'ubicacion' => Request::fullUrl(),
+                'ip' => Request::ip(),
+            ];
 
             if ($exception) {
-                // Si es un error crítico, registrar detalles técnicos
-                $mensaje .= "\nERROR MSG: ".$exception->getMessage();
-                $mensaje .= "\nARCHIVO: ".$exception->getFile().':'.$exception->getLine();
+                $context['error_msg'] = $exception->getMessage();
+                $context['archivo'] = $exception->getFile().':'.$exception->getLine();
             }
 
-            $mensaje .= "\n--------------------------------------------------";
+            // El LogContextMiddleware ya inyecta 'env', 'release' y 'user_id' al contexto global
+            Log::info("AUDIT: $descripcion", $context);
 
-            // Usamos el canal 'daily' para rotación diaria de logs
-            Log::channel('daily')->info($mensaje);
         } catch (\Exception $e) {
-            // Fallback por si falla el logging mismo
             Log::error('Error crítico al intentar registrar log de auditoría: '.$e->getMessage());
         }
     }

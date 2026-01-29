@@ -82,7 +82,7 @@ jobs:
   deploy_staging:
     name: Despliegue a Staging
     needs: [build]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
     runs-on: self-hosted # ESTO ES LO QUE CONECTA CON TU VM
     environment: staging
     steps:

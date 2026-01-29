@@ -53,35 +53,27 @@ jobs:
       - name: Compilación de Assets (Vite)
         run: npm run build
 
-      - name: Generación de Metadatos de Release
+      - name: Preparar Paquete de Despliegue
         run: |
-          date +%Y%m%d_%H%M%S > RELEASE_ID
-          echo "${GITHUB_SHA}" >> RELEASE_ID
+          mkdir -p deployment_package
+          mkdir -p deployment_package/bootstrap/cache
+          
+          # Copiar directorios clave
+          cp -r app config database public resources routes vendor scripts deployment_package/
+          
+          # Copiar archivos clave
+          cp artisan composer.json composer.lock package.json vite.config.js deploy.sh deployment_package/
+          cp bootstrap/*.php deployment_package/bootstrap/
+          
+          # Generar ID de Release dentro del paquete
+          date +%Y%m%d_%H%M%S > deployment_package/RELEASE_ID
+          echo "${GITHUB_SHA}" >> deployment_package/RELEASE_ID
 
       - name: Cargar Artefacto de Release
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: |
-            app
-            bootstrap
-            config
-            database
-            public
-            resources
-            routes
-            storage
-            vendor
-            artisan
-            composer.json
-            composer.lock
-            package.json
-            vite.config.js
-            deploy.sh
-            scripts
-            !storage/*.key
-            !storage/logs
-            !bootstrap/cache/*.php
+          path: deployment_package/
           retention-days: 7
 
   # ==================================================================

@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/health', HealthController::class);
 
+// ERROR DISPARADO INTENCIONALMENTE PARA PROBAR EL ROLLBACK
+ERROR_INTENCIONAL_DE_SINTAXIS;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes

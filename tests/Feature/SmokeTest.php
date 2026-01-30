@@ -8,10 +8,11 @@ class SmokeTest extends TestCase
 {
     /**
      * Prueba básica de disponibilidad (Smoke Test).
+     * Usa endpoint /api/health para evitar dependencia de Vite manifest en CI.
      */
     public function test_application_is_alive(): void
     {
-        $response = $this->get('/');
+        $response = $this->get('/api/health');
         $response->assertStatus(200);
     }
 

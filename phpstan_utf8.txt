@@ -1,0 +1,299 @@
+﻿ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\VentaController.php   
+ ------ ------------------------------------------- 
+  :248   Return type of call to method              
+         Illuminate\Database\Eloquent\Collection<i  
+         nt,App\Models\Producto>::map() contains u  
+         nresolvable type.                          
+         ­ƒ¬¬  method.unresolvableReturnType          
+  :252   Parameter #1 $callback of method           
+         Illuminate\Database\Eloquent\Collection<i  
+         nt,App\Models\Producto>::map() contains u  
+         nresolvable type.                          
+         ­ƒ¬¬  argument.unresolvableType              
+  :256   Access to an undefined property            
+         Illuminate\Database\Eloquent\Model::$nomb  
+         re.                                        
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Categoria.php                       
+ ------ ------------------------------------------- 
+  :10    Class App\Models\Categoria uses generic    
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :49    Method App\Models\Categoria::productos()   
+         should return                              
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sMany<App\Models\Producto, App\Models\Cat  
+         egoria> but returns Illuminate\Database\E  
+         loquent\Relations\HasMany<App\Models\Prod  
+         ucto, $this(App\Models\Categoria)>.        
+         ­ƒ¬¬  return.type                            
+         ­ƒÆí  Template type TDeclaringModel on class  
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sMany is not covariant. Learn more: https  
+         ://phpstan.org/blog/whats-up-with-templat  
+         e-covariant                                
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Cliente.php                         
+ ------ ------------------------------------------- 
+  :45    PHPDoc tag @method for method              
+         App\Models\Cliente::activos() return type  
+         contains generic class                     
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :45    PHPDoc tag @method for method              
+         App\Models\Cliente::conCredito() return    
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :45    PHPDoc tag @method for method              
+         App\Models\Cliente::porTipo() return type  
+         contains generic class                     
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :45    PHPDoc tag @method for method              
+         App\Models\Cliente::vip() return type      
+         contains generic class                     
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :47    Class App\Models\Cliente uses generic      
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc type array<string> of property App  
+         \Models\Cliente::$fillable is not          
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$fill  
+         able.                                      
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :108   PHPDoc type array<string> of property App  
+         \Models\Cliente::$appends is not           
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$appe  
+         nds.                                       
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :143   Method App\Models\Cliente::persona()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :300   Parameter #1 $string of function str_pad   
+         expects string, int given.                 
+         ­ƒ¬¬  argument.type                          
+  :379   Property                                   
+         App\Models\Cliente::$ultima_compra         
+         (Illuminate\Support\Carbon|null) does not  
+         accept Carbon\Carbon|string.               
+         ­ƒ¬¬  assign.propertyType                    
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Producto.php                        
+ ------ ------------------------------------------- 
+  :22    Class App\Models\Producto uses generic     
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :53    Method App\Models\Producto::categoria()    
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :89    Method                                     
+         App\Models\Producto::getMargenUtilidadAtt  
+         ribute() has no return type specified.     
+         ­ƒ¬¬  missingType.return                     
+  :99    Method                                     
+         App\Models\Producto::getTieneStockBajoAtt  
+         ribute() has no return type specified.     
+         ­ƒ¬¬  missingType.return                     
+  :105   Method                                     
+         App\Models\Producto::generarCodigo() has   
+         no return type specified.                  
+         ­ƒ¬¬  missingType.return                     
+  :110   Parameter #1 $string of function str_pad   
+         expects string, int given.                 
+         ­ƒ¬¬  argument.type                          
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Venta.php                           
+ ------ ------------------------------------------- 
+  :40    Class App\Models\Venta uses generic trait  
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :117   Method App\Models\Venta::cliente() should  
+         return                                     
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo<App\Models\Cliente, App\Models\Ve  
+         nta> but returns Illuminate\Database\Eloq  
+         uent\Relations\BelongsTo<App\Models\Clien  
+         te, $this(App\Models\Venta)>.              
+         ­ƒ¬¬  return.type                            
+         ­ƒÆí  Template type TDeclaringModel on class  
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo is not covariant. Learn more: htt  
+         ps://phpstan.org/blog/whats-up-with-templ  
+         ate-covariant                              
+  :125   Method App\Models\Venta::detalles()        
+         should return                              
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sMany<App\Models\DetalleVenta, App\Models  
+         \Venta> but returns Illuminate\Database\E  
+         loquent\Relations\HasMany<App\Models\Deta  
+         lleVenta, $this(App\Models\Venta)>.        
+         ­ƒ¬¬  return.type                            
+         ­ƒÆí  Template type TDeclaringModel on class  
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sMany is not covariant. Learn more: https  
+         ://phpstan.org/blog/whats-up-with-templat  
+         e-covariant                                
+  :134   Method                                     
+         App\Models\Venta::scopePendientes() has    
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :134   Method                                     
+         App\Models\Venta::scopePendientes()        
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :139   Method                                     
+         App\Models\Venta::scopeCompletadas() has   
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :139   Method                                     
+         App\Models\Venta::scopeCompletadas()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :144   Method App\Models\Venta::scopeAnuladas()   
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :144   Method App\Models\Venta::scopeAnuladas()   
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :149   Method                                     
+         App\Models\Venta::scopePorCliente() has    
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :149   Method                                     
+         App\Models\Venta::scopePorCliente()        
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :154   Method                                     
+         App\Models\Venta::scopeEntreFechas() has   
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :154   Method                                     
+         App\Models\Venta::scopeEntreFechas()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :159   Method                                     
+         App\Models\Venta::scopeConRelaciones()     
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :159   Method                                     
+         App\Models\Venta::scopeConRelaciones()     
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :197   Parameter #1 $string of function str_pad   
+         expects string, int given.                 
+         ­ƒ¬¬  argument.type                          
+  :244   Access to an undefined property            
+         Illuminate\Database\Eloquent\Model::$stoc  
+         k.                                         
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+  :246   Access to an undefined property            
+         Illuminate\Database\Eloquent\Model::$nomb  
+         re.                                        
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+  :261   Call to function method_exists() with      
+         App\Models\Cliente and                     
+         'actualizarUltimaComÔÇª' will always         
+         evaluate to true.                          
+         ­ƒ¬¬  function.alreadyNarrowedType           
+         ­ƒÆí  Because the type is coming from a      
+         PHPDoc, you can turn off this check by     
+         setting treatPhpDocTypesAsCertain: false   
+         in your phpstan.neon.                      
+  :264   Call to function method_exists() with      
+         App\Models\Cliente and                     
+         'incrementarTotalComÔÇª' will always         
+         evaluate to true.                          
+         ­ƒ¬¬  function.alreadyNarrowedType           
+         ­ƒÆí  Because the type is coming from a      
+         PHPDoc, you can turn off this check by     
+         setting treatPhpDocTypesAsCertain: false   
+         in your phpstan.neon.                      
+  :290   Access to an undefined property            
+         Illuminate\Database\Eloquent\Model::$stoc  
+         k.                                         
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+ ------ ------------------------------------------- 
+
+ [ERROR] Found 42 errors                           
+

@@ -1,0 +1,69 @@
+﻿ ------ ------------------------------------------- 
+  Line   Models\Categoria.php                       
+ ------ ------------------------------------------- 
+  :10    Class App\Models\Categoria uses generic    
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Cliente.php                         
+ ------ ------------------------------------------- 
+  :48    Class App\Models\Cliente uses generic      
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :147   Method App\Models\Cliente::persona()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Producto.php                        
+ ------ ------------------------------------------- 
+  :22    Class App\Models\Producto uses generic     
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Venta.php                           
+ ------ ------------------------------------------- 
+  :40    Class App\Models\Venta uses generic trait  
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :289   Call to function method_exists() with      
+         App\Models\Cliente and                     
+         'actualizarUltimaComÔÇª' will always         
+         evaluate to true.                          
+         ­ƒ¬¬  function.alreadyNarrowedType           
+         ­ƒÆí  Because the type is coming from a      
+         PHPDoc, you can turn off this check by     
+         setting treatPhpDocTypesAsCertain: false   
+         in your phpstan.neon.                      
+  :292   Call to function method_exists() with      
+         App\Models\Cliente and                     
+         'incrementarTotalComÔÇª' will always         
+         evaluate to true.                          
+         ­ƒ¬¬  function.alreadyNarrowedType           
+         ­ƒÆí  Because the type is coming from a      
+         PHPDoc, you can turn off this check by     
+         setting treatPhpDocTypesAsCertain: false   
+         in your phpstan.neon.                      
+ ------ ------------------------------------------- 
+
+ [ERROR] Found 7 errors                            
+

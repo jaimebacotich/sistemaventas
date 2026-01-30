@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 class LogContextMiddleware
@@ -17,9 +18,12 @@ class LogContextMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $transactionId = $request->header('X-Transaction-ID', (string) Str::uuid());
+
         $context = [
             'env' => config('app.env'),
             'release' => $this->getReleaseId(),
+            'transaction_id' => $transactionId,
         ];
 
         if (Auth::check()) {
@@ -28,7 +32,10 @@ class LogContextMiddleware
 
         Log::withContext($context);
 
-        return $next($request);
+        $response = $next($request);
+        $response->headers->set('X-Transaction-ID', $transactionId);
+
+        return $response;
     }
 
     /**

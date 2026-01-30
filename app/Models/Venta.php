@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\DB;
  * Modelo Venta
  *
  * Representa una venta realizada a un cliente.
- * Es el modelo maestro del módulo de ventas, relacionado con DetalleVenta.
- *
+ */
+/**
  * @property int $id
- * @property int $cliente_id
  * @property string $codigo
- * @property string $tipo_venta
+ * @property int $cliente_id
  * @property string $tipo_comprobante
- * @property string|null $numero_comprobante
+ * @property string $numero_comprobante
  * @property \Illuminate\Support\Carbon $fecha_venta
- * @property \Illuminate\Support\Carbon|null $fecha_vencimiento
+ * @property-read \Illuminate\Support\Carbon|null $fecha_vencimiento
+ * @property string $tipo_venta
  * @property float $subtotal
  * @property float $porcentaje_impuesto
  * @property float $impuesto
@@ -30,12 +30,14 @@ use Illuminate\Support\Facades\DB;
  * @property float $descuento
  * @property float $total
  * @property string $estado
- * @property string|null $observaciones
- * @property-read Cliente $cliente Relación con cliente
- * @property-read \Illuminate\Database\Eloquent\Collection|DetalleVenta[] $detalles Detalles de la venta
+ * @property-read \App\Models\Cliente $cliente
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\DetalleVenta> $detalles
+ * @property-read bool $es_credito
+ * @property-read bool $puede_editarse
  */
 class Venta extends Model
 {
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\VentaFactory> */
     use HasFactory;
 
     protected $table = 'ventas';
@@ -108,11 +110,17 @@ class Venta extends Model
     |--------------------------------------------------------------------------
     */
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Cliente, $this>
+     */
     public function cliente(): BelongsTo
     {
         return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\DetalleVenta, $this>
+     */
     public function detalles(): HasMany
     {
         return $this->hasMany(DetalleVenta::class, 'venta_id');
@@ -124,31 +132,55 @@ class Venta extends Model
     |--------------------------------------------------------------------------
     */
 
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Venta>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Venta>
+     */
     public function scopePendientes(Builder $query): Builder
     {
         return $query->where('estado', self::ESTADO_PENDIENTE);
     }
 
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Venta>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Venta>
+     */
     public function scopeCompletadas(Builder $query): Builder
     {
         return $query->where('estado', self::ESTADO_COMPLETADA);
     }
 
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Venta>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Venta>
+     */
     public function scopeAnuladas(Builder $query): Builder
     {
         return $query->where('estado', self::ESTADO_ANULADA);
     }
 
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Venta>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Venta>
+     */
     public function scopePorCliente(Builder $query, int $clienteId): Builder
     {
         return $query->where('cliente_id', $clienteId);
     }
 
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Venta>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Venta>
+     */
     public function scopeEntreFechas(Builder $query, string $desde, string $hasta): Builder
     {
         return $query->whereBetween('fecha_venta', [$desde, $hasta]);
     }
 
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Venta>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Venta>
+     */
     public function scopeConRelaciones(Builder $query): Builder
     {
         return $query->with(['cliente.persona', 'detalles.producto']);
@@ -187,7 +219,7 @@ class Venta extends Model
             $ultimo = self::lockForUpdate()->orderBy('id', 'desc')->first();
             $numero = $ultimo ? (int) substr($ultimo->codigo, strlen(self::CODIGO_PREFIJO)) + 1 : 1;
 
-            return self::CODIGO_PREFIJO.str_pad($numero, 6, '0', STR_PAD_LEFT);
+            return self::CODIGO_PREFIJO.str_pad((string) $numero, 6, '0', STR_PAD_LEFT);
         });
     }
 
@@ -231,6 +263,7 @@ class Venta extends Model
         return DB::transaction(function () {
             // Reducir stock de productos
             foreach ($this->detalles as $detalle) {
+                /** @var \App\Models\Producto $producto */
                 $producto = $detalle->producto;
 
                 // Validar stock suficiente
@@ -250,13 +283,9 @@ class Venta extends Model
                 $this->cliente->usarCredito($this->total);
             }
 
-            // Actualizar datos del cliente (si el modelo tiene estos métodos)
-            if (method_exists($this->cliente, 'actualizarUltimaCompra')) {
-                $this->cliente->actualizarUltimaCompra($this->fecha_venta);
-            }
-            if (method_exists($this->cliente, 'incrementarTotalCompras')) {
-                $this->cliente->incrementarTotalCompras($this->total);
-            }
+            // Actualizar datos del cliente            // Actualizar estadísticas del cliente
+            $this->cliente->actualizarUltimaCompra($this->fecha_venta);
+            $this->cliente->incrementarTotalCompras($this->total);
 
             $this->estado = self::ESTADO_COMPLETADA;
 
@@ -279,6 +308,7 @@ class Venta extends Model
             if ($this->estado === self::ESTADO_COMPLETADA) {
                 // Devolver stock de productos
                 foreach ($this->detalles as $detalle) {
+                    /** @var \App\Models\Producto $producto */
                     $producto = $detalle->producto;
                     $producto->stock += $detalle->cantidad;
                     $producto->save();
@@ -311,6 +341,6 @@ class Venta extends Model
             return null;
         }
 
-        return now()->diffInDays($this->fecha_vencimiento, false);
+        return (int) now()->diffInDays($this->fecha_vencimiento, false);
     }
 }

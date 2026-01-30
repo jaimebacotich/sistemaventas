@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\CategoriaFactory> */
     use HasFactory;
 
     protected $table = 'categorias';
@@ -23,17 +24,28 @@ class Categoria extends Model
         'updated_at' => 'datetime',
     ];
 
-    public function scopeActivas($query)
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Categoria>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Categoria>
+     */
+    public function scopeActivas(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
         return $query->where('estado', true);
     }
 
-    public function scopeInactivas($query)
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Categoria>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Categoria>
+     */
+    public function scopeInactivas(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
         return $query->where('estado', false);
     }
 
-    public function productos()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Producto, $this>
+     */
+    public function productos(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Producto::class);
     }

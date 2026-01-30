@@ -1,0 +1,40 @@
+﻿ ------ ------------------------------------------- 
+  Line   Http\Controllers\HealthController.php      
+ ------ ------------------------------------------- 
+  :55    Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckDatabase() return type has no value     
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :78    Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckCache() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :99    Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckStorage() return type has no value      
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :121   Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckQueue() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+
+ [ERROR] Found 4 errors                            
+

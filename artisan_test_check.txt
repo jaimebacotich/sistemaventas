@@ -1,0 +1,46 @@
+﻿
+   PASS  Tests\Unit\ExampleTest
+  Ô£ô that true is true                        0.01s  
+
+   PASS  Tests\Unit\Services\VentaServiceUnitTest
+  Ô£ô throws exception if updating non editabÔÇª 0.04s  
+  Ô£ô throws exception if deleting non pending venta
+
+   PASS  Tests\Feature\Api\CategoriaApiTest
+  Ô£ô can list categories                      0.38s  
+  Ô£ô can create category                      0.03s  
+  Ô£ô can show category                        0.02s  
+  Ô£ô can update category                      0.02s  
+  Ô£ô cannot create category without name      0.02s  
+  Ô£ô unauthenticated user cannot access cateÔÇª 0.02s  
+
+   PASS  Tests\Feature\Api\VentaApiTest
+  Ô£ô can list ventas                          0.04s  
+  Ô£ô can create venta api                     0.03s  
+
+   PASS  Tests\Feature\Auth\LoginTest
+  Ô£ô user can login with valid credentials    0.03s  
+  Ô£ô user cannot login with invalid credentiÔÇª 0.22s  
+  Ô£ô inactive user cannot login               0.02s  
+  Ô£ô login requires email and password        0.02s  
+  Ô£ô authenticated user can logout            0.02s  
+  Ô£ô authenticated user can get profile       0.02s  
+  Ô£ô unauthenticated user cannot access protÔÇª 0.02s  
+
+   PASS  Tests\Feature\ExampleTest
+  Ô£ô the application returns a successful reÔÇª 0.03s  
+
+   PASS  Tests\Feature\HealthTest
+  Ô£ô health endpoint returns ok or degraded   0.02s  
+
+   PASS  Tests\Feature\Integration\VentaServiceIntegrationTest
+  Ô£ô can create venta via service             0.03s  
+  Ô£ô can complete venta and reduce stock      0.03s  
+
+   PASS  Tests\Feature\SmokeTest
+  Ô£ô application is alive                     0.04s  
+  Ô£ô health check endpoint works              0.03s  
+
+  Tests:    24 passed (68 assertions)
+  Duration: 1.34s
+

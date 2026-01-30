@@ -1,0 +1,1347 @@
+﻿ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\AuthController.php    
+ ------ ------------------------------------------- 
+  :16    Method                                     
+         App\Http\Controllers\Api\AuthController::  
+         login() has no return type specified.      
+         ­ƒ¬¬  missingType.return                     
+  :52    Unable to resolve the template type        
+         TFlatMapKey in call to method              
+         Illuminate\Support\Collection<int,Illumin  
+         ate\Database\Eloquent\Model>::flatMap()    
+         ­ƒ¬¬  argument.templateType                  
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         error-unable-to-resolve-template-type      
+  :52    Unable to resolve the template type        
+         TFlatMapValue in call to method            
+         Illuminate\Support\Collection<int,Illumin  
+         ate\Database\Eloquent\Model>::flatMap()    
+         ­ƒ¬¬  argument.templateType                  
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         error-unable-to-resolve-template-type      
+  :53    Access to an undefined property            
+         Illuminate\Database\Eloquent\Model::$perm  
+         isos.                                      
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+  :84    Method                                     
+         App\Http\Controllers\Api\AuthController::  
+         logout() has no return type specified.     
+         ­ƒ¬¬  missingType.return                     
+  :101   Method                                     
+         App\Http\Controllers\Api\AuthController::  
+         user() has no return type specified.       
+         ­ƒ¬¬  missingType.return                     
+  :105   Unable to resolve the template type        
+         TFlatMapKey in call to method              
+         Illuminate\Support\Collection<int,Illumin  
+         ate\Database\Eloquent\Model>::flatMap()    
+         ­ƒ¬¬  argument.templateType                  
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         error-unable-to-resolve-template-type      
+  :105   Unable to resolve the template type        
+         TFlatMapValue in call to method            
+         Illuminate\Support\Collection<int,Illumin  
+         ate\Database\Eloquent\Model>::flatMap()    
+         ­ƒ¬¬  argument.templateType                  
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         error-unable-to-resolve-template-type      
+  :106   Access to an undefined property            
+         Illuminate\Database\Eloquent\Model::$perm  
+         isos.                                      
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\CategoriaController.  
+         php                                        
+ ------ ------------------------------------------- 
+  :15    Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::index() has no return type            
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :65    Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::store() has no return type            
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :117   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::show() has no return type specified.  
+         ­ƒ¬¬  missingType.return                     
+  :117   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::show() has parameter $id with no      
+         type specified.                            
+         ­ƒ¬¬  missingType.parameter                  
+  :142   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::update() has no return type           
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :142   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::update() has parameter $id with no    
+         type specified.                            
+         ­ƒ¬¬  missingType.parameter                  
+  :202   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::toggleEstado() has no return type     
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :202   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::toggleEstado() has parameter $id      
+         with no type specified.                    
+         ­ƒ¬¬  missingType.parameter                  
+  :241   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::destroy() has no return type          
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :241   Method                                     
+         App\Http\Controllers\Api\CategoriaControl  
+         ler::destroy() has parameter $id with no   
+         type specified.                            
+         ­ƒ¬¬  missingType.parameter                  
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\CompraController.php  
+ ------ ------------------------------------------- 
+         Ignored error pattern #^Relation           
+         'categoria' is not found in                
+         App\\Models\\Producto model\.$#            
+         (larastan.relationExistence) in path       
+         C:\laragon\www\cicd\ci\app\Http\Controlle  
+         rs\Api\CompraController.php was not        
+         matched in reported errors.                
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\ProductoController.p  
+         hp                                         
+ ------ ------------------------------------------- 
+         Ignored error pattern #^Relation           
+         'categoria' is not found in                
+         App\\Models\\Producto model\.$#            
+         (larastan.relationExistence) in path       
+         C:\laragon\www\cicd\ci\app\Http\Controlle  
+         rs\Api\ProductoController.php was not      
+         matched in reported errors.                
+  :101   Method                                     
+         App\Http\Controllers\Api\ProductoControll  
+         er::show() has parameter $id with no type  
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :126   Method                                     
+         App\Http\Controllers\Api\ProductoControll  
+         er::update() has parameter $id with no     
+         type specified.                            
+         ­ƒ¬¬  missingType.parameter                  
+  :176   Method                                     
+         App\Http\Controllers\Api\ProductoControll  
+         er::toggleEstado() has parameter $id with  
+         no type specified.                         
+         ­ƒ¬¬  missingType.parameter                  
+  :223   Method                                     
+         App\Http\Controllers\Api\ProductoControll  
+         er::destroy() has parameter $id with no    
+         type specified.                            
+         ­ƒ¬¬  missingType.parameter                  
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\ReporteController.ph  
+         p                                          
+ ------ ------------------------------------------- 
+  :52    Method                                     
+         App\Http\Controllers\Api\ReporteControlle  
+         r::ventasPdf() has no return type          
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :82    Method                                     
+         App\Http\Controllers\Api\ReporteControlle  
+         r::comprasPdf() has no return type         
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :112   Method                                     
+         App\Http\Controllers\Api\ReporteControlle  
+         r::inventarioPdf() has no return type      
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :141   Method                                     
+         App\Http\Controllers\Api\ReporteControlle  
+         r::clientesPdf() has no return type        
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :169   Method                                     
+         App\Http\Controllers\Api\ReporteControlle  
+         r::proveedoresPdf() has no return type     
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+  :197   Method                                     
+         App\Http\Controllers\Api\ReporteControlle  
+         r::finanzasPdf() has no return type        
+         specified.                                 
+         ­ƒ¬¬  missingType.return                     
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Controllers\Api\VentaController.php   
+ ------ ------------------------------------------- 
+         Ignored error pattern #^Relation           
+         'categoria' is not found in                
+         App\\Models\\Producto model\.$#            
+         (larastan.relationExistence) in path       
+         C:\laragon\www\cicd\ci\app\Http\Controlle  
+         rs\Api\VentaController.php was not         
+         matched in reported errors.                
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Controllers\HealthController.php      
+ ------ ------------------------------------------- 
+  :55    Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckDatabase() return type has no value     
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :78    Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckCache() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :99    Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckStorage() return type has no value      
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :121   Method                                     
+         App\Http\Controllers\HealthController::ch  
+         eckQueue() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Requests\Compra\StoreCompraRequest.p  
+         hp                                         
+ ------ ------------------------------------------- 
+  :14    Method                                     
+         App\Http\Requests\Compra\StoreCompraReque  
+         st::rules() return type has no value type  
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Requests\Compra\UpdateCompraRequest.  
+         php                                        
+ ------ ------------------------------------------- 
+  :14    Method                                     
+         App\Http\Requests\Compra\UpdateCompraRequ  
+         est::rules() return type has no value      
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Requests\Producto\StoreProductoReque  
+         st.php                                     
+ ------ ------------------------------------------- 
+  :14    Method                                     
+         App\Http\Requests\Producto\StoreProductoR  
+         equest::rules() return type has no value   
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Requests\Producto\UpdateProductoRequ  
+         est.php                                    
+ ------ ------------------------------------------- 
+  :14    Method                                     
+         App\Http\Requests\Producto\UpdateProducto  
+         Request::rules() return type has no value  
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Requests\Venta\StoreVentaRequest.php  
+ ------ ------------------------------------------- 
+  :14    Method                                     
+         App\Http\Requests\Venta\StoreVentaRequest  
+         ::rules() return type has no value type    
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Requests\Venta\UpdateVentaRequest.ph  
+         p                                          
+ ------ ------------------------------------------- 
+  :14    Method                                     
+         App\Http\Requests\Venta\UpdateVentaReques  
+         t::rules() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\CategoriaResource.php       
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\CategoriaResource::toA  
+         rray() return type has no value type       
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\ClienteResource.php         
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\ClienteResource::toArr  
+         ay() return type has no value type         
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\CompraResource.php          
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\CompraResource::toArra  
+         y() return type has no value type          
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\DetalleCompraResource.php   
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\DetalleCompraResource:  
+         :toArray() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\DetalleVentaResource.php    
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\DetalleVentaResource::  
+         toArray() return type has no value type    
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\ProductoResource.php        
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\ProductoResource::toAr  
+         ray() return type has no value type        
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\ProveedorResource.php       
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\ProveedorResource::toA  
+         rray() return type has no value type       
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Http\Resources\VentaResource.php           
+ ------ ------------------------------------------- 
+  :10    Method                                     
+         App\Http\Resources\VentaResource::toArray  
+         () return type has no value type           
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Compra.php                          
+ ------ ------------------------------------------- 
+  :48    PHPDoc tag @method for method              
+         App\Models\Compra::anuladas() return type  
+         contains generic class                     
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :48    PHPDoc tag @method for method              
+         App\Models\Compra::completadas() return    
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :48    PHPDoc tag @method for method              
+         App\Models\Compra::entreFechas() return    
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :48    PHPDoc tag @method for method              
+         App\Models\Compra::pendientes() return     
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :48    PHPDoc tag @method for method              
+         App\Models\Compra::porProveedor() return   
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :50    Class App\Models\Compra uses generic       
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc type array<string> of property App  
+         \Models\Compra::$fillable is not           
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$fill  
+         able.                                      
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :109   PHPDoc type array<string> of property App  
+         \Models\Compra::$appends is not covariant  
+         with PHPDoc type list<string> of overridd  
+         en property                                
+         Illuminate\Database\Eloquent\Model::$appe  
+         nds.                                       
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :156   Method App\Models\Compra::proveedor()      
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :164   Method App\Models\Compra::detalles()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sMany does not specify its types:          
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :178   Method                                     
+         App\Models\Compra::scopePendientes() has   
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :178   Method                                     
+         App\Models\Compra::scopePendientes()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :186   Method                                     
+         App\Models\Compra::scopeCompletadas() has  
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :186   Method                                     
+         App\Models\Compra::scopeCompletadas()      
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :194   Method App\Models\Compra::scopeAnuladas()  
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :194   Method App\Models\Compra::scopeAnuladas()  
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :202   Method                                     
+         App\Models\Compra::scopePorProveedor()     
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :202   Method                                     
+         App\Models\Compra::scopePorProveedor()     
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :210   Method                                     
+         App\Models\Compra::scopeEntreFechas() has  
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :210   Method                                     
+         App\Models\Compra::scopeEntreFechas()      
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :218   Method                                     
+         App\Models\Compra::scopeConRelaciones()    
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :218   Method                                     
+         App\Models\Compra::scopeConRelaciones()    
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :270   Parameter #1 $string of function str_pad   
+         expects string, int given.                 
+         ­ƒ¬¬  argument.type                          
+  :409   Method                                     
+         App\Models\Compra::diasParaVencimiento()   
+         should return int|null but returns float.  
+         ­ƒ¬¬  return.type                            
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\DetalleCompra.php                   
+ ------ ------------------------------------------- 
+  :31    Class App\Models\DetalleCompra uses        
+         generic trait                              
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :45    PHPDoc type array<string> of property App  
+         \Models\DetalleCompra::$fillable is not    
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$fill  
+         able.                                      
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :75    PHPDoc type array<string> of property App  
+         \Models\DetalleCompra::$appends is not     
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$appe  
+         nds.                                       
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :88    Method App\Models\DetalleCompra::compra()  
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :96    Method                                     
+         App\Models\DetalleCompra::producto()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :152   If condition is always true.               
+         ­ƒ¬¬  if.alwaysTrue                          
+         ­ƒÆí  Because the type is coming from a      
+         PHPDoc, you can turn off this check by     
+         setting treatPhpDocTypesAsCertain: false   
+         in your phpstan.neon.                      
+  :159   If condition is always true.               
+         ­ƒ¬¬  if.alwaysTrue                          
+         ­ƒÆí  Because the type is coming from a      
+         PHPDoc, you can turn off this check by     
+         setting treatPhpDocTypesAsCertain: false   
+         in your phpstan.neon.                      
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\DetalleVenta.php                    
+ ------ ------------------------------------------- 
+  :17    Class App\Models\DetalleVenta uses         
+         generic trait                              
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :51    Method App\Models\DetalleVenta::venta()    
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :56    Method                                     
+         App\Models\DetalleVenta::producto()        
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :90    Call to an undefined method                
+         Illuminate\Database\Eloquent\Model::calcu  
+         larTotales().                              
+         ­ƒ¬¬  method.notFound                        
+  :97    Call to an undefined method                
+         Illuminate\Database\Eloquent\Model::calcu  
+         larTotales().                              
+         ­ƒ¬¬  method.notFound                        
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Permiso.php                         
+ ------ ------------------------------------------- 
+  :18    Class App\Models\Permiso uses generic      
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :59    Method App\Models\Permiso::roles() return  
+         type with generic class                    
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsToMany does not specify its types:    
+         TRelatedModel, TDeclaringModel,            
+         TPivotModel, TAccessor (2-4 required)      
+         ­ƒ¬¬  missingType.generics                   
+  :71    Method                                     
+         App\Models\Permiso::scopePorModulo() has   
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :71    Method                                     
+         App\Models\Permiso::scopePorModulo()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :85    Method App\Models\Permiso::getModulos()    
+         return type has no value type specified    
+         in iterable type array.                    
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :103   Method                                     
+         App\Models\Permiso::agrupadosPorModulo()   
+         return type has no value type specified    
+         in iterable type array.                    
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Persona.php                         
+ ------ ------------------------------------------- 
+  :42    PHPDoc tag @method for method              
+         App\Models\Persona::activas() return type  
+         contains generic class                     
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :44    Class App\Models\Persona uses generic      
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :61    PHPDoc type array<string> of property App  
+         \Models\Persona::$fillable is not          
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$fill  
+         able.                                      
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :102   PHPDoc type array<string> of property App  
+         \Models\Persona::$appends is not           
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$appe  
+         nds.                                       
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :119   Method App\Models\Persona::cliente()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sOne does not specify its types:           
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :130   Method App\Models\Persona::proveedor()     
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Ha  
+         sOne does not specify its types:           
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :146   Method App\Models\Persona::scopeActivas()  
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :146   Method App\Models\Persona::scopeActivas()  
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :156   Method                                     
+         App\Models\Persona::scopePorTipoDocumento  
+         () has parameter $query with generic       
+         class                                      
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :156   Method                                     
+         App\Models\Persona::scopePorTipoDocumento  
+         () return type with generic class          
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :166   Method                                     
+         App\Models\Persona::scopePorNumeroDocumen  
+         to() has parameter $query with generic     
+         class                                      
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :166   Method                                     
+         App\Models\Persona::scopePorNumeroDocumen  
+         to() return type with generic class        
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Proveedor.php                       
+ ------ ------------------------------------------- 
+  :64    PHPDoc tag @method for method              
+         App\Models\Proveedor::activos() return     
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc tag @method for method              
+         App\Models\Proveedor::conCredito() return  
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc tag @method for method              
+         App\Models\Proveedor::mejorCalificados()   
+         return type contains generic class         
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc tag @method for method              
+         App\Models\Proveedor::porCalificacion()    
+         return type contains generic class         
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc tag @method for method              
+         App\Models\Proveedor::porRubro() return    
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :64    PHPDoc tag @method for method              
+         App\Models\Proveedor::porTipo() return     
+         type contains generic class                
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :66    Class App\Models\Proveedor uses generic    
+         trait                                      
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :85    PHPDoc type array<string> of property App  
+         \Models\Proveedor::$fillable is not        
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$fill  
+         able.                                      
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :143   PHPDoc type array<string> of property App  
+         \Models\Proveedor::$appends is not         
+         covariant with PHPDoc type list<string> o  
+         f overridden property                      
+         Illuminate\Database\Eloquent\Model::$appe  
+         nds.                                       
+         ­ƒ¬¬  property.phpDocType                    
+         ­ƒÆí  You can fix 3rd party PHPDoc types     
+         with stub files:                           
+         ­ƒÆí  https://phpstan.org/user-guide/stub-fi  
+         les                                        
+  :204   Method App\Models\Proveedor::persona()     
+         return type with generic class             
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsTo does not specify its types:        
+         TRelatedModel, TDeclaringModel             
+         ­ƒ¬¬  missingType.generics                   
+  :233   Method                                     
+         App\Models\Proveedor::scopeActivos() has   
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :233   Method                                     
+         App\Models\Proveedor::scopeActivos()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :243   Method                                     
+         App\Models\Proveedor::scopePorTipo() has   
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :243   Method                                     
+         App\Models\Proveedor::scopePorTipo()       
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :253   Method                                     
+         App\Models\Proveedor::scopePorCalificacio  
+         n() has parameter $query with generic      
+         class                                      
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :253   Method                                     
+         App\Models\Proveedor::scopePorCalificacio  
+         n() return type with generic class         
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :263   Method                                     
+         App\Models\Proveedor::scopePorRubro() has  
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :263   Method                                     
+         App\Models\Proveedor::scopePorRubro()      
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :274   Method                                     
+         App\Models\Proveedor::scopeConCredito()    
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :274   Method                                     
+         App\Models\Proveedor::scopeConCredito()    
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :285   Method                                     
+         App\Models\Proveedor::scopeMejorCalificad  
+         os() has parameter $query with generic     
+         class                                      
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :285   Method                                     
+         App\Models\Proveedor::scopeMejorCalificad  
+         os() return type with generic class        
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :296   Method                                     
+         App\Models\Proveedor::scopeConPersona()    
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :296   Method                                     
+         App\Models\Proveedor::scopeConPersona()    
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :380   Parameter #1 $string of function str_pad   
+         expects string, int given.                 
+         ­ƒ¬¬  argument.type                          
+  :466   Property                                   
+         App\Models\Proveedor::$ultima_compra       
+         (Illuminate\Support\Carbon|null) does not  
+         accept Carbon\Carbon|string.               
+         ­ƒ¬¬  assign.propertyType                    
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\Rol.php                             
+ ------ ------------------------------------------- 
+  :18    Class App\Models\Rol uses generic trait    
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :48    Method App\Models\Rol::permisos() return   
+         type with generic class                    
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsToMany does not specify its types:    
+         TRelatedModel, TDeclaringModel,            
+         TPivotModel, TAccessor (2-4 required)      
+         ­ƒ¬¬  missingType.generics                   
+  :54    Method App\Models\Rol::usuarios() return   
+         type with generic class                    
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsToMany does not specify its types:    
+         TRelatedModel, TDeclaringModel,            
+         TPivotModel, TAccessor (2-4 required)      
+         ­ƒ¬¬  missingType.generics                   
+  :66    Method App\Models\Rol::scopeActivos() has  
+         parameter $query with generic class        
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :66    Method App\Models\Rol::scopeActivos()      
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :71    Method App\Models\Rol::scopeInactivos()    
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :71    Method App\Models\Rol::scopeInactivos()    
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :103   Parameter #1 $string of function str_pad   
+         expects string, int given.                 
+         ­ƒ¬¬  argument.type                          
+  :123   Method App\Models\Rol::asignarPermisos()   
+         has parameter $permisoIds with no value    
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :131   Method App\Models\Rol::agregarPermisos()   
+         has parameter $permisoIds with no value    
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Models\User.php                            
+ ------ ------------------------------------------- 
+  :19    Class App\Models\User uses generic trait   
+         Illuminate\Database\Eloquent\Factories\Ha  
+         sFactory but does not specify its types:   
+         TFactory                                   
+         ­ƒ¬¬  missingType.generics                   
+  :49    Method App\Models\User::roles() return     
+         type with generic class                    
+         Illuminate\Database\Eloquent\Relations\Be  
+         longsToMany does not specify its types:    
+         TRelatedModel, TDeclaringModel,            
+         TPivotModel, TAccessor (2-4 required)      
+         ­ƒ¬¬  missingType.generics                   
+  :61    Method App\Models\User::scopeActivos()     
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :61    Method App\Models\User::scopeActivos()     
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :66    Method App\Models\User::scopeInactivos()   
+         has parameter $query with generic class    
+         Illuminate\Database\Eloquent\Builder but   
+         does not specify its types: TModel         
+         ­ƒ¬¬  missingType.generics                   
+  :66    Method App\Models\User::scopeInactivos()   
+         return type with generic class             
+         Illuminate\Database\Eloquent\Builder does  
+         not specify its types: TModel              
+         ­ƒ¬¬  missingType.generics                   
+  :99    Method App\Models\User::asignarRoles()     
+         has parameter $rolIds with no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :107   Method App\Models\User::agregarRoles()     
+         has parameter $rolIds with no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :129   Method App\Models\User::getPermisos() has  
+         no return type specified.                  
+         ­ƒ¬¬  missingType.return                     
+  :151   Method                                     
+         App\Models\User::tieneAlgunPermiso() has   
+         parameter $codigosPermisos with no value   
+         type specified in iterable type array.     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :163   Method                                     
+         App\Models\User::tieneTodosLosPermisos()   
+         has parameter $codigosPermisos with no     
+         value type specified in iterable type      
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Services\AuditLogger.php                   
+ ------ ------------------------------------------- 
+  :13    Method App\Services\AuditLogger::log()     
+         has no return type specified.              
+         ­ƒ¬¬  missingType.return                     
+  :13    Method App\Services\AuditLogger::log()     
+         has parameter $descripcion with no type    
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :13    Method App\Services\AuditLogger::log()     
+         has parameter $exception with no type      
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :13    Method App\Services\AuditLogger::log()     
+         has parameter $nivel with no type          
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :13    Method App\Services\AuditLogger::log()     
+         has parameter $tipo with no type           
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :37    Method                                     
+         App\Services\AuditLogger::consulta() has   
+         no return type specified.                  
+         ­ƒ¬¬  missingType.return                     
+  :37    Method                                     
+         App\Services\AuditLogger::consulta() has   
+         parameter $descripcion with no type        
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :42    Method                                     
+         App\Services\AuditLogger::insercion() has  
+         no return type specified.                  
+         ­ƒ¬¬  missingType.return                     
+  :42    Method                                     
+         App\Services\AuditLogger::insercion() has  
+         parameter $datos with no type specified.   
+         ­ƒ¬¬  missingType.parameter                  
+  :42    Method                                     
+         App\Services\AuditLogger::insercion() has  
+         parameter $descripcion with no type        
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :51    Method                                     
+         App\Services\AuditLogger::actualizacion()  
+         has no return type specified.              
+         ­ƒ¬¬  missingType.return                     
+  :51    Method                                     
+         App\Services\AuditLogger::actualizacion()  
+         has parameter $cambios with no type        
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :51    Method                                     
+         App\Services\AuditLogger::actualizacion()  
+         has parameter $descripcion with no type    
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :60    Method                                     
+         App\Services\AuditLogger::eliminacion()    
+         has no return type specified.              
+         ­ƒ¬¬  missingType.return                     
+  :60    Method                                     
+         App\Services\AuditLogger::eliminacion()    
+         has parameter $descripcion with no type    
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :60    Method                                     
+         App\Services\AuditLogger::eliminacion()    
+         has parameter $id with no type specified.  
+         ­ƒ¬¬  missingType.parameter                  
+  :69    Method App\Services\AuditLogger::error()   
+         has no return type specified.              
+         ­ƒ¬¬  missingType.return                     
+  :69    Method App\Services\AuditLogger::error()   
+         has parameter $descripcion with no type    
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :69    Method App\Services\AuditLogger::error()   
+         has parameter $exception with no type      
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+  :74    Method App\Services\AuditLogger::login()   
+         has no return type specified.              
+         ­ƒ¬¬  missingType.return                     
+  :74    Method App\Services\AuditLogger::login()   
+         has parameter $descripcion with no type    
+         specified.                                 
+         ­ƒ¬¬  missingType.parameter                  
+ ------ ------------------------------------------- 
+
+ ------ ------------------------------------------- 
+  Line   Services\ReporteService.php                
+ ------ ------------------------------------------- 
+         Ignored error pattern #^Relation           
+         'categoria' is not found in                
+         App\\Models\\Producto model\.$#            
+         (larastan.relationExistence) in path       
+         C:\laragon\www\cicd\ci\app\Services\Repor  
+         teService.php was not matched in reported  
+         errors.                                    
+  :22    Method                                     
+         App\Services\ReporteService::getDashboard  
+         Stats() return type has no value type      
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :145   Method                                     
+         App\Services\ReporteService::getReporteVe  
+         ntas() has parameter $filtros with no      
+         value type specified in iterable type      
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :145   Method                                     
+         App\Services\ReporteService::getReporteVe  
+         ntas() return type has no value type       
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :187   Method                                     
+         App\Services\ReporteService::getReporteCo  
+         mpras() has parameter $filtros with no     
+         value type specified in iterable type      
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :187   Method                                     
+         App\Services\ReporteService::getReporteCo  
+         mpras() return type has no value type      
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :229   Method                                     
+         App\Services\ReporteService::getReporteIn  
+         ventario() has parameter $filtros with no  
+         value type specified in iterable type      
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :229   Method                                     
+         App\Services\ReporteService::getReporteIn  
+         ventario() return type has no value type   
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :237   Right side of && is always true.           
+         ­ƒ¬¬  booleanAnd.rightAlwaysTrue             
+  :267   Method                                     
+         App\Services\ReporteService::getReporteCl  
+         ientes() has parameter $filtros with no    
+         value type specified in iterable type      
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :267   Method                                     
+         App\Services\ReporteService::getReporteCl  
+         ientes() return type has no value type     
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :288   Access to an undefined property            
+         App\Models\Cliente::$cantidad_compras.     
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+  :308   Method                                     
+         App\Services\ReporteService::getReportePr  
+         oveedores() has parameter $filtros with    
+         no value type specified in iterable type   
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :308   Method                                     
+         App\Services\ReporteService::getReportePr  
+         oveedores() return type has no value type  
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :329   Access to an undefined property            
+         App\Models\Proveedor::$cantidad_compras.   
+         ­ƒ¬¬  property.notFound                      
+         ­ƒÆí  Learn more: https://phpstan.org/blog/s  
+         olving-phpstan-access-to-undefined-proper  
+         ty                                         
+  :349   Method                                     
+         App\Services\ReporteService::getReporteFi  
+         nanzas() has parameter $filtros with no    
+         value type specified in iterable type      
+         array.                                     
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :349   Method                                     
+         App\Services\ReporteService::getReporteFi  
+         nanzas() return type has no value type     
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+  :413   Method                                     
+         App\Services\ReporteService::getFiltrosDa  
+         ta() return type has no value type         
+         specified in iterable type array.          
+         ­ƒ¬¬  missingType.iterableValue              
+         ­ƒÆí  See:                                   
+         https://phpstan.org/blog/solving-phpstan-  
+         no-value-type-specified-in-iterable-type   
+ ------ ------------------------------------------- 
+
+ [ERROR] Found 190 errors                          
+

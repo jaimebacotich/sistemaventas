@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 
@@ -37,13 +36,15 @@ use Illuminate\Support\Facades\DB;
  * @property-read Persona $persona Relación con persona
  * @property-read \Illuminate\Database\Eloquent\Collection|Venta[] $ventas Ventas del cliente
  *
- * @method static Builder activos() Scope para filtrar clientes activos
- * @method static Builder vip() Scope para filtrar clientes VIP
- * @method static Builder porTipo(string $tipo) Scope para filtrar por tipo de cliente
- * @method static Builder conCredito() Scope para clientes con crédito disponible
+ * @method static Builder<Cliente> activos() Scope para filtrar clientes activos
+ * @method static Builder<Cliente> vip() Scope para filtrar clientes VIP
+ * @method static Builder<Cliente> porTipo(string $tipo) Scope para filtrar por tipo de cliente
+ * @method static Builder<Cliente> conCredito() Scope para clientes con crédito disponible
+ * @method static Builder<Cliente> conPersona() Scope para incluir datos de la persona relacionada
  */
 class Cliente extends Model
 {
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\ClienteFactory> */
     use HasFactory;
 
     /**
@@ -59,7 +60,7 @@ class Cliente extends Model
      * Define los campos que pueden ser llenados mediante asignación masiva
      * para protección contra vulnerabilidades de asignación masiva
      *
-     * @var array<string>
+     * @var list<string>
      */
     protected $fillable = [
         'persona_id',          // ID de la persona asociada
@@ -105,6 +106,9 @@ class Cliente extends Model
      *
      * @var array<string>
      */
+    /**
+     * @var list<string>
+     */
     protected $appends = [
         'credito_disponible',          // Crédito disponible calculado
         'tiene_credito_disponible',    // Booleano si tiene crédito
@@ -140,9 +144,12 @@ class Cliente extends Model
      * Un cliente pertenece a una persona.
      * Permite acceder a los datos personales (nombre, documento, contacto, etc.)
      */
-    public function persona(): BelongsTo
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Persona, $this>
+     */
+    public function persona(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(Persona::class, 'persona_id');
+        return $this->belongsTo(Persona::class);
     }
 
     /**
@@ -168,6 +175,9 @@ class Cliente extends Model
      * Scope para filtrar solo clientes activos
      *
      * Uso: Cliente::activos()->get()
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Cliente>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Cliente>
      */
     public function scopeActivos(Builder $query): Builder
     {
@@ -178,6 +188,9 @@ class Cliente extends Model
      * Scope para filtrar clientes VIP
      *
      * Uso: Cliente::vip()->get()
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Cliente>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Cliente>
      */
     public function scopeVip(Builder $query): Builder
     {
@@ -188,6 +201,9 @@ class Cliente extends Model
      * Scope para filtrar por tipo de cliente
      *
      * Uso: Cliente::porTipo('Mayorista')->get()
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Cliente>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Cliente>
      */
     public function scopePorTipo(Builder $query, string $tipo): Builder
     {
@@ -199,6 +215,9 @@ class Cliente extends Model
      *
      * Filtra clientes que tienen límite de crédito y aún tienen saldo disponible
      * Uso: Cliente::conCredito()->get()
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Cliente>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Cliente>
      */
     public function scopeConCredito(Builder $query): Builder
     {
@@ -210,6 +229,9 @@ class Cliente extends Model
      * Scope para incluir datos de la persona relacionada
      *
      * Uso: Cliente::conPersona()->get()
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Cliente>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Cliente>
      */
     public function scopeConPersona(Builder $query): Builder
     {
@@ -282,7 +304,7 @@ class Cliente extends Model
             $numero = $ultimo ? (int) substr($ultimo->codigo, strlen(self::CODIGO_PREFIJO)) + 1 : 1;
 
             // Formatear código con padding de ceros
-            return self::CODIGO_PREFIJO.str_pad($numero, 6, '0', STR_PAD_LEFT);
+            return self::CODIGO_PREFIJO.str_pad((string) $numero, 6, '0', STR_PAD_LEFT);
         });
     }
 
@@ -361,7 +383,7 @@ class Cliente extends Model
      */
     public function actualizarUltimaCompra($fecha = null): bool
     {
-        $this->ultima_compra = $fecha ?? now();
+        $this->ultima_compra = $fecha instanceof \Illuminate\Support\Carbon ? $fecha : ($fecha ? \Illuminate\Support\Carbon::parse($fecha) : now());
 
         return $this->save();
     }

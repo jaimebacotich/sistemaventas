@@ -10,16 +10,23 @@ use App\Models\Cliente;
 use App\Models\Producto;
 use App\Models\Venta;
 use App\Services\AuditLogger;
+use App\Services\VentaService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Controlador API para gestión de Ventas
  */
 class VentaController extends Controller
 {
+    protected VentaService $ventaService;
+
+    public function __construct(VentaService $ventaService)
+    {
+        $this->ventaService = $ventaService;
+    }
+
     /**
      * Listar todas las ventas con filtros y paginación
      */
@@ -27,13 +34,13 @@ class VentaController extends Controller
     {
         try {
             $query = Venta::with(['cliente.persona', 'detalles.producto'])
-                ->when($request->filled('estado'), fn ($q) => $q->where('estado', $request->estado))
-                ->when($request->filled('cliente_id'), fn ($q) => $q->where('cliente_id', $request->cliente_id))
-                ->when($request->filled('tipo_venta'), fn ($q) => $q->where('tipo_venta', $request->tipo_venta))
-                ->when($request->filled('fecha_desde'), fn ($q) => $q->whereDate('fecha_venta', '>=', $request->fecha_desde))
-                ->when($request->filled('fecha_hasta'), fn ($q) => $q->whereDate('fecha_venta', '<=', $request->fecha_hasta))
-                ->when($request->filled('search'), function ($q) use ($request) {
-                    $search = $request->search;
+                ->when($request->filled('estado'), fn (\Illuminate\Database\Eloquent\Builder $q) => $q->where('estado', $request->input('estado')))
+                ->when($request->filled('cliente_id'), fn (\Illuminate\Database\Eloquent\Builder $q) => $q->where('cliente_id', $request->input('cliente_id')))
+                ->when($request->filled('tipo_venta'), fn (\Illuminate\Database\Eloquent\Builder $q) => $q->where('tipo_venta', $request->input('tipo_venta')))
+                ->when($request->filled('fecha_desde'), fn (\Illuminate\Database\Eloquent\Builder $q) => $q->whereDate('fecha_venta', '>=', $request->input('fecha_desde')))
+                ->when($request->filled('fecha_hasta'), fn (\Illuminate\Database\Eloquent\Builder $q) => $q->whereDate('fecha_venta', '<=', $request->input('fecha_hasta')))
+                ->when($request->filled('search'), function (\Illuminate\Database\Eloquent\Builder $q) use ($request) {
+                    $search = $request->input('search');
                     $q->where(function ($subQ) use ($search) {
                         $subQ->where('codigo', 'ilike', "%{$search}%")
                             ->orWhere('numero_comprobante', 'ilike', "%{$search}%");
@@ -66,30 +73,10 @@ class VentaController extends Controller
     public function store(StoreVentaRequest $request): JsonResponse
     {
         try {
-            DB::beginTransaction();
-
-            $data = $request->validated();
-            $data['codigo'] = Venta::generarCodigo();
-            $data['estado'] = Venta::ESTADO_PENDIENTE;
-            $data['porcentaje_impuesto'] ??= 0;
-            $data['porcentaje_descuento'] ??= 0;
-
-            $venta = Venta::create($data);
-
-            foreach ($request->detalles as $detalle) {
-                $venta->detalles()->create([
-                    'producto_id' => $detalle['producto_id'],
-                    'cantidad' => $detalle['cantidad'],
-                    'precio_unitario' => $detalle['precio_unitario'],
-                    'porcentaje_descuento' => $detalle['porcentaje_descuento'] ?? 0,
-                ]);
-            }
-
-            DB::commit();
-
-            $venta->load(['cliente.persona', 'detalles.producto']);
-
-            AuditLogger::insercion("Venta creada: {$venta->codigo} (Cliente ID: {$venta->cliente_id})", $request->input('detalles'));
+            $venta = $this->ventaService->crearVenta(
+                $request->validated(),
+                $request->input('detalles')
+            );
 
             return response()->json([
                 'success' => true,
@@ -97,9 +84,6 @@ class VentaController extends Controller
                 'data' => new VentaResource($venta),
             ], 201);
         } catch (Exception $e) {
-            DB::rollBack();
-            AuditLogger::error('Error al crear venta', $e);
-
             return response()->json([
                 'success' => false,
                 'message' => 'Error al crear la venta',
@@ -109,79 +93,34 @@ class VentaController extends Controller
     }
 
     /**
-     * Mostrar una venta específica con sus detalles
+     * Mostrar detalles de una venta específica
      */
-    public function show(int $id): JsonResponse
+    public function show(Venta $venta): JsonResponse
     {
-        try {
-            $venta = Venta::with(['cliente.persona', 'detalles.producto.categoria'])->find($id);
-
-            if (! $venta) {
-                return response()->json(['success' => false, 'message' => 'Venta no encontrada'], 404);
-            }
-
-            return response()->json([
-                'success' => true,
-                'data' => new VentaResource($venta),
-            ], 200);
-        } catch (Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Error al obtener la venta',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
+        return response()->json([
+            'success' => true,
+            'data' => new VentaResource($venta->load(['cliente.persona', 'detalles.producto'])),
+        ]);
     }
 
     /**
-     * Actualizar una venta existente (solo si está pendiente)
+     * Actualizar una venta y sus detalles
      */
-    public function update(UpdateVentaRequest $request, int $id): JsonResponse
+    public function update(UpdateVentaRequest $request, Venta $venta): JsonResponse
     {
         try {
-            $venta = Venta::find($id);
-
-            if (! $venta) {
-                return response()->json(['success' => false, 'message' => 'Venta no encontrada'], 404);
-            }
-
-            if (! $venta->puede_editarse) {
-                return response()->json(['success' => false, 'message' => 'Solo las ventas pendientes pueden modificarse'], 422);
-            }
-
-            DB::beginTransaction();
-
-            $data = $request->validated();
-            $data['porcentaje_impuesto'] ??= 0;
-            $data['porcentaje_descuento'] ??= 0;
-
-            $venta->update($data);
-
-            $venta->detalles()->delete();
-
-            foreach ($request->detalles as $detalle) {
-                $venta->detalles()->create([
-                    'producto_id' => $detalle['producto_id'],
-                    'cantidad' => $detalle['cantidad'],
-                    'precio_unitario' => $detalle['precio_unitario'],
-                    'porcentaje_descuento' => $detalle['porcentaje_descuento'] ?? 0,
-                ]);
-            }
-
-            DB::commit();
-
-            $venta->load(['cliente.persona', 'detalles.producto']);
-            AuditLogger::actualizacion("Venta actualizada: {$venta->codigo}", $request->except(['detalles']));
+            $venta = $this->ventaService->actualizarVenta(
+                $venta,
+                $request->validated(),
+                $request->input('detalles')
+            );
 
             return response()->json([
                 'success' => true,
                 'message' => 'Venta actualizada exitosamente',
                 'data' => new VentaResource($venta),
-            ], 200);
+            ]);
         } catch (Exception $e) {
-            DB::rollBack();
-            AuditLogger::error("Error al actualizar venta ID {$id}", $e);
-
             return response()->json([
                 'success' => false,
                 'message' => 'Error al actualizar la venta',
@@ -191,96 +130,72 @@ class VentaController extends Controller
     }
 
     /**
-     * Completar una venta (reduce stock y usa crédito)
+     * Completar una venta (procesa stock y crédito)
      */
-    public function completar(int $id): JsonResponse
+    public function completar(Venta $venta): JsonResponse
     {
         try {
-            $venta = Venta::with(['detalles.producto', 'cliente'])->find($id);
-
-            if (! $venta) {
-                return response()->json(['success' => false, 'message' => 'Venta no encontrada'], 404);
-            }
-
-            $venta->completar();
-            $venta->load(['cliente.persona', 'detalles.producto']);
-
-            AuditLogger::actualizacion("Venta completada: {$venta->codigo} (Stock actualizado)");
+            $this->ventaService->completarVenta($venta);
 
             return response()->json([
                 'success' => true,
-                'message' => 'Venta completada exitosamente. Stock actualizado.',
+                'message' => 'Venta completada exitosamente',
                 'data' => new VentaResource($venta),
-            ], 200);
+            ]);
         } catch (Exception $e) {
-            AuditLogger::error("Error al completar venta ID {$id}", $e);
+            AuditLogger::error("Error al completar venta {$venta->id}", $e);
 
-            return response()->json(['success' => false, 'message' => $e->getMessage()], 422);
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al completar la venta',
+                'error' => $e->getMessage(),
+            ], 500);
         }
     }
 
     /**
-     * Anular una venta (devuelve stock y crédito si estaba completada)
+     * Anular una venta
      */
-    public function anular(int $id): JsonResponse
+    public function anular(Venta $venta): JsonResponse
     {
         try {
-            $venta = Venta::with(['detalles.producto', 'cliente'])->find($id);
-
-            if (! $venta) {
-                return response()->json(['success' => false, 'message' => 'Venta no encontrada'], 404);
-            }
-
-            $venta->anular();
-            $venta->load(['cliente.persona', 'detalles.producto']);
-
-            AuditLogger::actualizacion("Venta anulada: {$venta->codigo} (Stock revertido)");
+            $this->ventaService->anularVenta($venta);
 
             return response()->json([
                 'success' => true,
                 'message' => 'Venta anulada exitosamente',
                 'data' => new VentaResource($venta),
-            ], 200);
+            ]);
         } catch (Exception $e) {
-            AuditLogger::error("Error al anular venta ID {$id}", $e);
+            AuditLogger::error("Error al anular venta {$venta->id}", $e);
 
-            return response()->json(['success' => false, 'message' => $e->getMessage()], 422);
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al anular la venta',
+                'error' => $e->getMessage(),
+            ], 500);
         }
     }
 
     /**
-     * Eliminar una venta (solo si está pendiente)
+     * Eliminar físicamente una venta pendiente
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy(Venta $venta): JsonResponse
     {
         try {
-            $venta = Venta::find($id);
+            $this->ventaService->eliminarVenta($venta);
 
-            if (! $venta) {
-                return response()->json(['success' => false, 'message' => 'Venta no encontrada'], 404);
-            }
-
-            if ($venta->estado !== Venta::ESTADO_PENDIENTE) {
-                return response()->json(['success' => false, 'message' => 'Solo las ventas pendientes pueden eliminarse. Las completadas deben anularse.'], 422);
-            }
-
-            DB::beginTransaction();
-            $venta->detalles()->delete();
-            $venta->delete();
-            DB::commit();
-
-            AuditLogger::eliminacion("Venta eliminada ID {$id}");
-
-            return response()->json(['success' => true, 'message' => 'Venta eliminada exitosamente'], 200);
+            return response()->json([
+                'success' => true,
+                'message' => 'Venta eliminada exitosamente',
+            ]);
         } catch (Exception $e) {
-            DB::rollBack();
-            AuditLogger::error("Error al eliminar venta ID {$id}", $e);
+            AuditLogger::error("Error al eliminar venta {$venta->id}", $e);
 
             return response()->json([
                 'success' => false,
-                'message' => 'Error al eliminar la venta',
-                'error' => $e->getMessage(),
-            ], 500);
+                'message' => $e->getMessage(),
+            ], 400);
         }
     }
 
